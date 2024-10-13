@@ -3,22 +3,18 @@ pipeline{
     stages{
         stage('pull'){
             steps{
-
+                git branch: 'dev', url: 'https://github.com/yogitapatlekar/dyl-my-frontend.git'
             }
         }
         stage('build'){
             steps{
-
-            }
-        }
-        stage('test'){
-            steps{
-
+                sh '''npm install
+                    ng build '''
             }
         }
         stage('deploy'){
             steps{
-
+                sh 'aws cp --recursive dist/angular-frontend/* s3:/dyl-my-bucket1/'
             }
         }
 
