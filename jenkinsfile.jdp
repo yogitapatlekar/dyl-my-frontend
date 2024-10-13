@@ -14,7 +14,7 @@ pipeline{
         }
         stage('deploy'){
             steps{
-                sh 'aws cp --recursive dist/angular-frontend/* s3:/dyl-my-bucket1/'
+                sh '/usr/local/bin/aws cp --recursive dist/angular-frontend/* s3:/dyl-my-bucket1/'
             }
         }
 
